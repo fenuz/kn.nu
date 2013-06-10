@@ -1,0 +1,30 @@
+{
+    "name": "kennisnet/kn.nu",
+    "require": {
+        "kennisnet/yourls-plugin-installer": "dev-master",
+        "kennisnet/forwarding-rules": "dev-master",
+        "kennisnet/forwarding-rules-strip-index": "dev-master",
+        "kennisnet/yourls-302-redirects": "dev-master"
+    },    
+    "extra": {
+        "yourls-plugin-dir": "www/user/plugins"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/fenuz/forwarding-rules.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/fenuz/forwarding-rules-strip-index.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/fenuz/yourls-302-redirects.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/fenuz/yourls-plugin-installer.git"
+        }
+    ]
+}

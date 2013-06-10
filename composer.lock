@@ -1,0 +1,117 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "3dbd53c0301faaf6d17da168ac457cee",
+    "packages": [
+        {
+            "name": "kennisnet/forwarding-rules",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fenuz/forwarding-rules.git",
+                "reference": "bb3d5f66529cf355aefec1983cd64a8f8e4d5adb"
+            },
+            "type": "yourls-plugin",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Frank Matheron",
+                    "email": "frankmatheron@gmail.com"
+                }
+            ],
+            "description": "yourls plugin that defines redirection rules",
+            "time": "2013-06-10 13:54:27"
+        },
+        {
+            "name": "kennisnet/forwarding-rules-strip-index",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/fenuz/forwarding-rules-strip-index.git",
+                "reference": "3df18cc512c0bd22e276d18f16c994196133d2f0"
+            },
+            "type": "yourls-plugin",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Frank Matheron",
+                    "email": "frankmatheron@gmail.com"
+                }
+            ],
+            "description": "forwarding-rules filter that adds request variants with index.php (or html, htm) removed.",
+            "time": "2013-06-10 11:52:50"
+        },
+        {
+            "name": "kennisnet/yourls-302-redirects",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/fenuz/yourls-302-redirects.git",
+                "reference": "e329810bae5182ea72fb7d77c92b0a3447663436"
+            },
+            "type": "yourls-plugin",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Frank Matheron",
+                    "email": "frankmatheron@gmail.com"
+                }
+            ],
+            "description": "Use 302 redirects to prevent browser caching keyword redirects. ",
+            "time": "2013-06-10 13:02:46"
+        },
+        {
+            "name": "kennisnet/yourls-plugin-installer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/fenuz/yourls-plugin-installer.git",
+                "reference": "afa03eed82db9f4a132dcb66c0819d068ae8fc9e"
+            },
+            "require-dev": {
+                "composer/composer": "dev-master"
+            },
+            "type": "composer-installer",
+            "extra": {
+                "class": "Kennisnet\\Yourls\\Composer\\PluginInstaller"
+            },
+            "autoload": {
+                "psr-0": {
+                    "Kennisnet\\Yourls\\Composer": "lib"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Composer installer for Yourls plugins",
+            "time": "2013-06-10 11:37:51"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "kennisnet/yourls-plugin-installer": 20,
+        "kennisnet/forwarding-rules": 20,
+        "kennisnet/forwarding-rules-strip-index": 20,
+        "kennisnet/yourls-302-redirects": 20
+    },
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}
