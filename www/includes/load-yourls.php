@@ -36,6 +36,10 @@ if( !defined( 'YOURLS_USERDIR' ) )
 if( !defined( 'YOURLS_USERURL' ) )
 	define( 'YOURLS_USERURL', YOURLS_SITE.'/user' );
 	
+// physical path of translations directory
+if( !defined( 'YOURLS_LANG_DIR' ) )
+	define( 'YOURLS_LANG_DIR', YOURLS_USERDIR.'/languages' );
+
 // physical path of plugins directory
 if( !defined( 'YOURLS_PLUGINDIR' ) )
 	define( 'YOURLS_PLUGINDIR', YOURLS_USERDIR.'/plugins' );
@@ -90,7 +94,7 @@ if( !defined( 'YOURLS_DEBUG' ) )
 	
 // Error reporting
 if( defined( 'YOURLS_DEBUG' ) && YOURLS_DEBUG == true ) {
-	error_reporting( E_ALL );
+	error_reporting( -1 );
 } else {
 	error_reporting( E_ERROR | E_PARSE );
 }
@@ -98,7 +102,11 @@ if( defined( 'YOURLS_DEBUG' ) && YOURLS_DEBUG == true ) {
 // Include all functions
 require_once( YOURLS_INC.'/version.php' );
 require_once( YOURLS_INC.'/functions.php');
+require_once( YOURLS_INC.'/functions-plugins.php' );
 require_once( YOURLS_INC.'/functions-formatting.php' );
+require_once( YOURLS_INC.'/functions-api.php' );
+require_once( YOURLS_INC.'/functions-kses.php' );
+require_once( YOURLS_INC.'/functions-l10n.php' );
 require_once( YOURLS_INC.'/functions-compat.php' );
 require_once( YOURLS_INC.'/functions-html.php' );
 // Allow drop-in replacement for the DB engine
@@ -107,7 +115,6 @@ if( file_exists( YOURLS_USERDIR.'/db.php' ) ) {
 } else {
 	require_once( YOURLS_INC.'/class-mysql.php' );
 }
-require_once( YOURLS_INC.'/functions-plugins.php' );
 // Load auth functions if needed
 if( yourls_is_private() )
 	require_once( YOURLS_INC.'/functions-auth.php' );
@@ -115,6 +122,12 @@ if( yourls_is_private() )
 // Allow early inclusion of a cache layer
 if( file_exists( YOURLS_USERDIR.'/cache.php' ) )
 	require_once( YOURLS_USERDIR.'/cache.php' );
+
+// Load locale
+yourls_load_default_textdomain();
+
+// Check if we are in maintenance mode - if yes, it will die here.
+yourls_check_maintenance_mode();
 	
 // If request for an admin page is http:// and SSL is required, redirect
 if( yourls_is_admin() && yourls_needs_ssl() && !yourls_is_ssl() ) {
@@ -143,22 +156,13 @@ register_shutdown_function( 'yourls_shutdown' );
 // Core now loaded
 yourls_do_action( 'init' ); // plugins can't see this, not loaded yet
 
-// Check if we are in maintenance mode
-yourls_check_maintenance_mode();
-
 // Check if need to redirect to install procedure
-if( !yourls_is_installed() && ( !defined('YOURLS_INSTALLING') || YOURLS_INSTALLING != true ) ) {
+if( !yourls_is_installed() && !yourls_is_installing() ) {
 	yourls_redirect( yourls_admin_url( 'install.php' ), 302 );
 }
 
-// Check if upgrade is needed.
-// Note: this is bypassable with define('YOURLS_NO_UPGRADE_CHECK', true)
-// This is also bypassed if YOURLS_INSTALLING
-if (
-	( !defined('YOURLS_NO_UPGRADE_CHECK') || YOURLS_NO_UPGRADE_CHECK != true )
-	&&  
-	( !defined('YOURLS_INSTALLING') || YOURLS_INSTALLING != true )
-) {
+// Check if upgrade is needed (bypassed if upgrading or installing)
+if ( !yourls_is_upgrading() && !yourls_is_installing() ) {
 	if ( yourls_upgrade_is_needed() ) {
 		yourls_redirect( YOURLS_SITE .'/admin/upgrade.php', 302 );
 	}

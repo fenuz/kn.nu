@@ -10,6 +10,12 @@ www/user/config.php
 # cookies used by comscore plugin
 www/user/comscore.cookies
 
+# default plugins not included in repo
+www/user/plugins/random-bg/
+www/user/plugins/sample-page/
+www/user/plugins/sample-plugin/
+www/user/plugins/sample-toolbar/
+
 # plugins installed using composer
 www/user/plugins/forwarding-rules/
 www/user/plugins/forwarding-rules-strip-index/

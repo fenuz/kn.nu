@@ -8,7 +8,7 @@ if( !isset( $keyword ) && isset( $_GET['id'] ) )
 $keyword = yourls_sanitize_string( $keyword );
 
 // First possible exit:
-if ( !$keyword ) {
+if ( !isset( $keyword ) ) {
 	yourls_do_action( 'redirect_no_keyword' );
 	yourls_redirect( YOURLS_SITE, 301 );
 }
@@ -18,13 +18,14 @@ $url = yourls_get_keyword_longurl( $keyword );
 
 // URL found
 if( !empty( $url ) ) {
+	yourls_do_action( 'redirect_shorturl', $url, $keyword );
+
 	// Update click count in main table
 	$update_clicks = yourls_update_clicks( $keyword );
+
 	// Update detailed log for stats
 	$log_redirect = yourls_log_redirect( $keyword );
 	
-	yourls_do_action( 'redirect_shorturl', $url, $keyword );
-
 	yourls_redirect( $url, 301 );
 
 // URL not found. Either reserved, or page, or doesn't exist

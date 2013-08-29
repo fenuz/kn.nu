@@ -154,7 +154,40 @@ function yourls_apply_filter( $hook, $value = '' ) {
 		return $value;
 }
 
+/**
+ * Alias for yourls_apply_filter because I never remember if it's _filter or _filters
+ *
+ * Plus, semantically, it makes more sense. There can be several filters. I should have named it
+ * like this from the very start. Duh.
+ *
+ * @since 1.6
+ *
+ * @param string $hook the name of the YOURLS element or action
+ * @param mixed $value the value of the element before filtering
+ * @return mixed
+ */
+function yourls_apply_filters( $hook, $value = '' ) {
+	return yourls_apply_filter( $hook, $value );
+}
+
+
+/**
+ * Performs an action triggered by a YOURLS event.
+* 
+ * @param string $hook the name of the YOURLS action
+ * @param mixed $arg action arguments
+ */
 function yourls_do_action( $hook, $arg = '' ) {
+	global $yourls_actions;
+	
+	// Keep track of actions that are "done"
+	if ( !isset( $yourls_actions ) )
+		$yourls_actions = array();
+	if ( !isset( $yourls_actions[ $hook ] ) )
+		$yourls_actions[ $hook ] = 1;
+	else
+		++$yourls_actions[ $hook ];
+
 	$args = array();
 	if ( is_array( $arg ) && 1 == count( $arg ) && isset( $arg[0] ) && is_object( $arg[0] ) ) // array(&$this)
 		$args[] =& $arg[0];
@@ -166,6 +199,18 @@ function yourls_do_action( $hook, $arg = '' ) {
 	yourls_apply_filter( $hook, $args );
 }
 
+/**
+* Retrieve the number times an action is fired.
+*
+* @param string $hook Name of the action hook.
+* @return int The number of times action hook <tt>$hook</tt> is fired
+*/
+function yourls_did_action( $hook ) {
+	global $yourls_actions;
+	if ( !isset( $yourls_actions ) || !isset( $yourls_actions[ $hook ] ) )
+		return 0;
+	return $yourls_actions[ $hook ];
+}
 
 /**
  * Removes a function from a specified filter hook.
@@ -324,7 +369,7 @@ function yourls_load_plugins() {
 	$active_plugins = yourls_get_option( 'active_plugins' );
 	
 	// Don't load plugins when installing or updating
-	if( !$active_plugins  OR ( defined( 'YOURLS_INSTALLING' ) AND YOURLS_INSTALLING ) OR yourls_upgrade_is_needed() )
+	if( !$active_plugins OR yourls_is_installing() OR yourls_upgrade_is_needed() )
 		return;
 	
 	foreach( (array)$active_plugins as $key=>$plugin ) {
@@ -337,10 +382,10 @@ function yourls_load_plugins() {
 	
 	// $active_plugins should be empty now, if not, a plugin could not be find: remove it
 	if( count( $active_plugins ) ) {
-		$missing = '<strong>'.join( '</strong>, <strong>', $active_plugins ).'</strong>';
 		yourls_update_option( 'active_plugins', $ydb->plugins );
-		$message = 'Could not find and deactivated '. yourls_plural( 'plugin', count( $active_plugins ) ) .' '. $missing;
-		yourls_add_notice( $message );
+		$message = yourls_n( 'Could not find and deactivated plugin :', 'Could not find and deactivated plugins :', count( $active_plugins ) );
+		$missing = '<strong>'.join( '</strong>, <strong>', $active_plugins ).'</strong>';
+		yourls_add_notice( $message .' '. $missing );
 	}
 }
 
@@ -375,12 +420,12 @@ function yourls_activate_plugin( $plugin ) {
 	$plugin = yourls_plugin_basename( $plugin );
 	$plugindir = yourls_sanitize_filename( YOURLS_PLUGINDIR );
 	if( !yourls_validate_plugin_file( $plugindir.'/'.$plugin ) )
-		return 'Not a valid plugin file';
+		return yourls__( 'Not a valid plugin file' );
 		
 	// check not activated already
 	global $ydb;
 	if( yourls_has_active_plugins() && in_array( $plugin, $ydb->plugins ) )
-		return 'Plugin already activated';
+		return yourls__( 'Plugin already activated' );
 	
 	// attempt activation. TODO: uber cool fail proof sandbox like in WP.
 	ob_start();
@@ -388,7 +433,7 @@ function yourls_activate_plugin( $plugin ) {
 	if ( ob_get_length() > 0 ) {
 		// there was some output: error
 		$output = ob_get_clean();
-		return 'Plugin generated expected output. Error was: <br/><pre>'.$output.'</pre>';
+		return yourls_s( 'Plugin generated unexpected output. Error was: <br/><pre>%s</pre>', $output );
 	}
 	
 	// so far, so good: update active plugin list
@@ -411,7 +456,7 @@ function yourls_deactivate_plugin( $plugin ) {
 
 	// Check plugin is active
 	if( !yourls_is_active_plugin( $plugin ) )
-		return 'Plugin not active';
+		return yourls__( 'Plugin not active' );
 	
 	// Deactivate the plugin
 	global $ydb;
@@ -491,7 +536,7 @@ function yourls_plugin_admin_page( $plugin_page ) {
 
 	// Check the plugin page is actually registered
 	if( !isset( $ydb->plugin_pages[$plugin_page] ) ) {
-		yourls_die( 'This page does not exist. Maybe a plugin you thought was activated is inactive?', 'Invalid link' );
+		yourls_die( yourls__( 'This page does not exist. Maybe a plugin you thought was activated is inactive?' ), yourls__( 'Invalid link' ) );
 	}
 	
 	// Draw the page itself
@@ -505,4 +550,30 @@ function yourls_plugin_admin_page( $plugin_page ) {
 	yourls_html_footer();
 	
 	die();
+}
+
+
+/**
+ * Callback function: Sort plugins 
+ *
+ * @link http://php.net/uasort
+ *
+ * @param array $plugin_a
+ * @param array $plugin_b
+ * @return int 0, 1 or -1, see uasort()
+ */
+function yourls_plugins_sort_callback( $plugin_a, $plugin_b ) {
+	$orderby = yourls_apply_filters( 'plugins_sort_callback', 'Plugin Name' );
+	$order   = yourls_apply_filters( 'plugins_sort_callback', 'ASC' );
+
+	$a = $plugin_a[$orderby];
+	$b = $plugin_b[$orderby];
+
+	if ( $a == $b )
+		return 0;
+
+	if ( 'DESC' == $order )
+		return ( $a < $b ) ? 1 : -1;
+	else
+		return ( $a < $b ) ? -1 : 1;		
 }
