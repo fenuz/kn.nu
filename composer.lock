@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3dbd53c0301faaf6d17da168ac457cee",
+    "hash": "81ad9177cce7c5217556692aaf353e5a",
     "packages": [
         {
             "name": "kennisnet/forwarding-rules",
@@ -11,7 +11,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fenuz/forwarding-rules.git",
-                "reference": "bb3d5f66529cf355aefec1983cd64a8f8e4d5adb"
+                "reference": "027b2b16ca198a4af36d0abc9ce9bf77abf79871"
             },
             "type": "yourls-plugin",
             "license": [
@@ -24,7 +24,7 @@
                 }
             ],
             "description": "yourls plugin that defines redirection rules",
-            "time": "2013-06-10 13:54:27"
+            "time": "2013-07-08 19:17:34"
         },
         {
             "name": "kennisnet/forwarding-rules-strip-index",
@@ -48,11 +48,35 @@
             "time": "2013-06-10 11:52:50"
         },
         {
+            "name": "kennisnet/separate-users-authmgr",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fenuz/separate-users-authmgr.git",
+                "reference": "c406072bc09d21ccfbf6219ee29ce96f4c2b8b53"
+            },
+            "require": {
+                "kennisnet/yourls-plugin-installer": "dev-master"
+            },
+            "type": "yourls-plugin",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Frank Matheron",
+                    "email": "frankmatheron@gmail.com"
+                }
+            ],
+            "description": "Integration between separate-users and authmgr Yourls plugins",
+            "time": "2013-08-29 12:17:04"
+        },
+        {
             "name": "kennisnet/yourls-302-redirects",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git://github.com/fenuz/yourls-302-redirects.git",
+                "url": "https://github.com/fenuz/yourls-302-redirects.git",
                 "reference": "e329810bae5182ea72fb7d77c92b0a3447663436"
             },
             "type": "yourls-plugin",
@@ -69,12 +93,99 @@
             "time": "2013-06-10 13:02:46"
         },
         {
+            "name": "kennisnet/yourls-authmgr-plugin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fenuz/yourls-authmgr-plugin.git",
+                "reference": "0ea6e8ef8dd516ff029bb0e1db7cf7470c1b4965"
+            },
+            "type": "yourls-plugin",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Frank Matheron",
+                    "email": "frankmatheron@gmail.com"
+                }
+            ],
+            "description": "Fork of the yourls-authmgr-plugin on https://github.com/nicwaller/yourls-authmgr-plugin by nicwaller",
+            "time": "2013-06-10 14:55:20"
+        },
+        {
+            "name": "kennisnet/yourls-comscore",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fenuz/yourls-comscore.git",
+                "reference": "b70884899315a27e64f5ed2de2fe6f087626742c"
+            },
+            "type": "yourls-plugin",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Frank Matheron",
+                    "email": "frankmatheron@gmail.com"
+                }
+            ],
+            "description": "Yourls plugin that logs redirects in ComScore",
+            "time": "2013-06-20 14:16:42"
+        },
+        {
+            "name": "kennisnet/yourls-cookie-domain",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fenuz/yourls-cookie-domain.git",
+                "reference": "78d2eed3e098372916e0904275a5ebbf33c3095b"
+            },
+            "require": {
+                "kennisnet/yourls-plugin-installer": "dev-master"
+            },
+            "type": "yourls-plugin",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Frank Matheron",
+                    "email": "frankmatheron@gmail.com"
+                }
+            ],
+            "description": "yourls plugin changes the cookie domain",
+            "time": "2013-08-29 11:58:31"
+        },
+        {
+            "name": "kennisnet/yourls-kennisnet-theme",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fenuz/yourls-kennisnet-theme.git",
+                "reference": "65325763246cccfd306d1c66f67432f5477d5273"
+            },
+            "type": "yourls-plugin",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Frank Matheron",
+                    "email": "frankmatheron@gmail.com"
+                }
+            ],
+            "description": "yourls plugin changes the appearance of YOURLS",
+            "time": "2013-06-21 08:22:37"
+        },
+        {
             "name": "kennisnet/yourls-plugin-installer",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git://github.com/fenuz/yourls-plugin-installer.git",
-                "reference": "afa03eed82db9f4a132dcb66c0819d068ae8fc9e"
+                "url": "https://github.com/fenuz/yourls-plugin-installer.git",
+                "reference": "c6ef6103ae105441653ea0aaebe7ac8772657a00"
             },
             "require-dev": {
                 "composer/composer": "dev-master"
@@ -92,7 +203,7 @@
                 "proprietary"
             ],
             "description": "Composer installer for Yourls plugins",
-            "time": "2013-06-10 11:37:51"
+            "time": "2013-06-10 15:53:08"
         }
     ],
     "packages-dev": [
@@ -106,7 +217,12 @@
         "kennisnet/yourls-plugin-installer": 20,
         "kennisnet/forwarding-rules": 20,
         "kennisnet/forwarding-rules-strip-index": 20,
-        "kennisnet/yourls-302-redirects": 20
+        "kennisnet/yourls-302-redirects": 20,
+        "kennisnet/yourls-authmgr-plugin": 20,
+        "kennisnet/yourls-comscore": 20,
+        "kennisnet/yourls-kennisnet-theme": 20,
+        "kennisnet/yourls-cookie-domain": 20,
+        "kennisnet/separate-users-authmgr": 20
     },
     "platform": [
 

@@ -4,7 +4,12 @@
         "kennisnet/yourls-plugin-installer": "dev-master",
         "kennisnet/forwarding-rules": "dev-master",
         "kennisnet/forwarding-rules-strip-index": "dev-master",
-        "kennisnet/yourls-302-redirects": "dev-master"
+        "kennisnet/yourls-302-redirects": "dev-master",
+        "kennisnet/yourls-authmgr-plugin": "dev-master",
+        "kennisnet/yourls-comscore": "dev-master",
+        "kennisnet/yourls-kennisnet-theme": "dev-master",
+        "kennisnet/yourls-cookie-domain": "dev-master",
+		"kennisnet/separate-users-authmgr": "dev-master"
     },    
     "extra": {
         "yourls-plugin-dir": "www/user/plugins"
@@ -25,6 +30,26 @@
         {
             "type": "git",
             "url": "https://github.com/fenuz/yourls-plugin-installer.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/fenuz/yourls-authmgr-plugin.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/fenuz/yourls-comscore.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/fenuz/yourls-kennisnet-theme.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/fenuz/yourls-cookie-domain.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/fenuz/separate-users-authmgr.git"
         }
     ]
 }

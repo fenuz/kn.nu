@@ -33,7 +33,12 @@ apt-get install -y \
     curl \
     git
 
-git config --global http.proxy $http_proxy
+if [[ ! -z "$http_proxy" ]]
+then
+    git config --global http.proxy $http_proxy
+else
+    git config --global --unset http.proxy
+fi
 
 # install mysql server without asking for root password (leaves root password blank)
 export DEBIAN_FRONTEND=noninteractive

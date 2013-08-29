@@ -2,4 +2,23 @@ vendor/
 .vagrant
 nbproject/
 *.un~
+*.swp
 
+# yourls config
+www/user/config.php
+
+# cookies used by comscore plugin
+www/user/comscore.cookies
+
+# plugins installed using composer
+www/user/plugins/forwarding-rules/
+www/user/plugins/forwarding-rules-strip-index/
+www/user/plugins/yourls-authmgr-plugin/
+www/user/plugins/yourls-302-redirects/
+www/user/plugins/create-duplicate-keywords/
+www/user/plugins/separate-users-authmgr/
+www/user/plugins/unknown-keyword-404/
+www/user/plugins/yourls-anonymize-log/
+www/user/plugins/yourls-comscore/
+www/user/plugins/yourls-cookie-domain/
+www/user/plugins/yourls-kennisnet-theme/
