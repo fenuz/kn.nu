@@ -98,7 +98,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fenuz/yourls-admin-url.git",
-                "reference": "9c08ff3c8ea727e992ffbb3edaf191132dd0a348"
+                "reference": "0f663854d80aaec44523a879255191aa7aee8d2f"
             },
             "require": {
                 "kennisnet/yourls-plugin-installer": "dev-master"
@@ -114,7 +114,7 @@
                 }
             ],
             "description": "customize the yourls admin url",
-            "time": "2013-08-29 13:07:21"
+            "time": "2013-08-30 14:07:54"
         },
         {
             "name": "kennisnet/yourls-authmgr-plugin",
