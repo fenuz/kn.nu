@@ -11,7 +11,10 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fenuz/forwarding-rules.git",
-                "reference": "027b2b16ca198a4af36d0abc9ce9bf77abf79871"
+                "reference": "cbac87c66f7a96ddbb4007f5806009d497690bc9"
+            },
+            "require": {
+                "kennisnet/yourls-plugin-installer": "dev-master"
             },
             "type": "yourls-plugin",
             "license": [
@@ -24,15 +27,18 @@
                 }
             ],
             "description": "yourls plugin that defines redirection rules",
-            "time": "2013-07-08 19:17:34"
+            "time": "2013-08-30 15:37:08"
         },
         {
             "name": "kennisnet/forwarding-rules-strip-index",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git://github.com/fenuz/forwarding-rules-strip-index.git",
-                "reference": "3df18cc512c0bd22e276d18f16c994196133d2f0"
+                "url": "https://github.com/fenuz/forwarding-rules-strip-index.git",
+                "reference": "cc8a0f06e6a7aa8f1ac8c6e2b064274a65a459cc"
+            },
+            "require": {
+                "kennisnet/yourls-plugin-installer": "dev-master"
             },
             "type": "yourls-plugin",
             "license": [
@@ -45,7 +51,7 @@
                 }
             ],
             "description": "forwarding-rules filter that adds request variants with index.php (or html, htm) removed.",
-            "time": "2013-06-10 11:52:50"
+            "time": "2013-08-30 15:38:33"
         },
         {
             "name": "kennisnet/separate-users-authmgr",
@@ -77,7 +83,10 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fenuz/yourls-302-redirects.git",
-                "reference": "89f4a7c429599910ef7f5835603129f87575b78f"
+                "reference": "6d328b0c61cc441ade4a97ca41a9f0a2514d5fe6"
+            },
+            "require": {
+                "kennisnet/yourls-plugin-installer": "dev-master"
             },
             "type": "yourls-plugin",
             "license": [
@@ -90,7 +99,7 @@
                 }
             ],
             "description": "Use 302 redirects to prevent browser caching keyword redirects. ",
-            "time": "2013-08-29 14:28:55"
+            "time": "2013-08-30 15:36:27"
         },
         {
             "name": "kennisnet/yourls-admin-url",
@@ -122,7 +131,10 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fenuz/yourls-authmgr-plugin.git",
-                "reference": "0ea6e8ef8dd516ff029bb0e1db7cf7470c1b4965"
+                "reference": "6c0dc1675fe62ec96ef3d29cd735e5ade3d3c396"
+            },
+            "require": {
+                "kennisnet/yourls-plugin-installer": "dev-master"
             },
             "type": "yourls-plugin",
             "license": [
@@ -135,7 +147,7 @@
                 }
             ],
             "description": "Fork of the yourls-authmgr-plugin on https://github.com/nicwaller/yourls-authmgr-plugin by nicwaller",
-            "time": "2013-06-10 14:55:20"
+            "time": "2013-08-30 15:38:17"
         },
         {
             "name": "kennisnet/yourls-comscore",
@@ -143,7 +155,10 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fenuz/yourls-comscore.git",
-                "reference": "b70884899315a27e64f5ed2de2fe6f087626742c"
+                "reference": "ab5cd1bfa7c7453193ef1715c3cccac4846f0935"
+            },
+            "require": {
+                "kennisnet/yourls-plugin-installer": "dev-master"
             },
             "type": "yourls-plugin",
             "license": [
@@ -156,7 +171,7 @@
                 }
             ],
             "description": "Yourls plugin that logs redirects in ComScore",
-            "time": "2013-06-20 14:16:42"
+            "time": "2013-08-30 15:37:50"
         },
         {
             "name": "kennisnet/yourls-cookie-domain",
@@ -216,7 +231,10 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fenuz/yourls-kennisnet-theme.git",
-                "reference": "65325763246cccfd306d1c66f67432f5477d5273"
+                "reference": "c40f6836139d81732b05523db2494648f94ef24c"
+            },
+            "require": {
+                "kennisnet/yourls-plugin-installer": "dev-master"
             },
             "type": "yourls-plugin",
             "license": [
@@ -229,7 +247,7 @@
                 }
             ],
             "description": "yourls plugin changes the appearance of YOURLS",
-            "time": "2013-06-21 08:22:37"
+            "time": "2013-08-30 15:37:32"
         },
         {
             "name": "kennisnet/yourls-plugin-installer",
