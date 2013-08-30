@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "81ad9177cce7c5217556692aaf353e5a",
+    "hash": "56ab3521c8eabecd633a0c6d6da1143d",
     "packages": [
         {
             "name": "kennisnet/forwarding-rules",
@@ -77,7 +77,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fenuz/yourls-302-redirects.git",
-                "reference": "e329810bae5182ea72fb7d77c92b0a3447663436"
+                "reference": "89f4a7c429599910ef7f5835603129f87575b78f"
             },
             "type": "yourls-plugin",
             "license": [
@@ -90,7 +90,31 @@
                 }
             ],
             "description": "Use 302 redirects to prevent browser caching keyword redirects. ",
-            "time": "2013-06-10 13:02:46"
+            "time": "2013-08-29 14:28:55"
+        },
+        {
+            "name": "kennisnet/yourls-admin-url",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fenuz/yourls-admin-url.git",
+                "reference": "9c08ff3c8ea727e992ffbb3edaf191132dd0a348"
+            },
+            "require": {
+                "kennisnet/yourls-plugin-installer": "dev-master"
+            },
+            "type": "yourls-plugin",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Frank Matheron",
+                    "email": "frankmatheron@gmail.com"
+                }
+            ],
+            "description": "customize the yourls admin url",
+            "time": "2013-08-29 13:07:21"
         },
         {
             "name": "kennisnet/yourls-authmgr-plugin",
@@ -159,6 +183,34 @@
             "time": "2013-08-29 11:58:31"
         },
         {
+            "name": "kennisnet/yourls-dont-track-admins",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fenuz/yourls-dont-track-admins.git",
+                "reference": "ecd9dea5f2fb1f81b9dad53d4e4b0715569beab5"
+            },
+            "require": {
+                "kennisnet/yourls-plugin-installer": "dev-master"
+            },
+            "type": "yourls-plugin",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "dgw",
+                    "homepage": "http://technobabbl.es/"
+                },
+                {
+                    "name": "Frank Matheron",
+                    "email": "frankmatheron@gmail.com"
+                }
+            ],
+            "description": "A plugin for YOURLS (the self-hosted URL shortener) that disables tracking clicks on shortened URLs for logged-in users.",
+            "time": "2013-08-30 13:01:48"
+        },
+        {
             "name": "kennisnet/yourls-kennisnet-theme",
             "version": "dev-master",
             "source": {
@@ -222,7 +274,9 @@
         "kennisnet/yourls-comscore": 20,
         "kennisnet/yourls-kennisnet-theme": 20,
         "kennisnet/yourls-cookie-domain": 20,
-        "kennisnet/separate-users-authmgr": 20
+        "kennisnet/separate-users-authmgr": 20,
+        "kennisnet/yourls-admin-url": 20,
+        "kennisnet/yourls-dont-track-admins": 20
     },
     "platform": [
 

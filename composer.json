@@ -9,7 +9,9 @@
         "kennisnet/yourls-comscore": "dev-master",
         "kennisnet/yourls-kennisnet-theme": "dev-master",
         "kennisnet/yourls-cookie-domain": "dev-master",
-		"kennisnet/separate-users-authmgr": "dev-master"
+        "kennisnet/separate-users-authmgr": "dev-master",
+        "kennisnet/yourls-admin-url": "dev-master",
+        "kennisnet/yourls-dont-track-admins": "dev-master"
     },    
     "extra": {
         "yourls-plugin-dir": "www/user/plugins"
@@ -50,6 +52,14 @@
         {
             "type": "git",
             "url": "https://github.com/fenuz/separate-users-authmgr.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/fenuz/yourls-admin-url.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/fenuz/yourls-dont-track-admins.git"
         }
     ]
 }
